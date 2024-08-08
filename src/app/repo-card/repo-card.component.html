@@ -1,0 +1,106 @@
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      {{ repo.repo }}
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <div class="card-body">
+
+    <!-- Pull Requests Section -->
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Pull Requests
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <table mat-table [dataSource]="repo?.open_prs" class="mat-elevation-z8 spaced-table">
+        <!-- Type Column -->
+        <ng-container matColumnDef="type">
+          <th mat-header-cell *matHeaderCellDef> Type </th>
+          <td mat-cell *matCellDef="let element"> {{ element.type }} </td>
+        </ng-container>
+
+        <!-- Title Column -->
+        <ng-container matColumnDef="title">
+          <th mat-header-cell *matHeaderCellDef> Title </th>
+          <td mat-cell *matCellDef="let element"> {{ element.title || 'N/A' }} </td>
+        </ng-container>
+
+        <!-- Source Branch Column -->
+        <ng-container matColumnDef="source">
+          <th mat-header-cell *matHeaderCellDef> Source Branch </th>
+          <td mat-cell *matCellDef="let element"> {{ element.head?.ref || 'N/A' }} </td>
+        </ng-container>
+
+        <!-- Target Branch Column -->
+        <ng-container matColumnDef="target">
+          <th mat-header-cell *matHeaderCellDef> Target Branch </th>
+          <td mat-cell *matCellDef="let element"> {{ element.base?.ref || 'N/A' }} </td>
+        </ng-container>
+
+        <!-- Author Column -->
+        <ng-container matColumnDef="author">
+          <th mat-header-cell *matHeaderCellDef> Author </th>
+          <td mat-cell *matCellDef="let element"> {{ element.head_commit?.author?.name || 'N/A' }} </td>
+        </ng-container>
+
+        <!-- Link Column -->
+        <ng-container matColumnDef="link">
+          <th mat-header-cell *matHeaderCellDef> Link </th>
+          <td mat-cell *matCellDef="let element">
+            <a [href]="element.html_url" target="_blank"> View </a>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </mat-expansion-panel>
+
+    <!-- Builds Section -->
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Builds
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <table mat-table [dataSource]="repo?.builds" class="mat-elevation-z8 spaced-table">
+        <!-- Type Column -->
+        <ng-container matColumnDef="type">
+          <th mat-header-cell *matHeaderCellDef> Type </th>
+          <td mat-cell *matCellDef="let element"> {{ element.type || 'Build' }} </td>
+        </ng-container>
+
+        <!-- Title Column -->
+        <ng-container matColumnDef="title">
+          <th mat-header-cell *matHeaderCellDef> Title </th>
+          <td mat-cell *matCellDef="let element"> {{ element.display_title || 'Build' }} </td>
+        </ng-container>
+
+        <!-- Status Column -->
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef> Status </th>
+          <td mat-cell *matCellDef="let element"> {{ element.conclusion || element.status }} </td>
+        </ng-container>
+
+        <!-- Author Column -->
+        <ng-container matColumnDef="author">
+          <th mat-header-cell *matHeaderCellDef> Author </th>
+          <td mat-cell *matCellDef="let element"> {{ element.head_commit?.author?.name || 'N/A' }} </td>
+        </ng-container>
+
+        <!-- Link Column -->
+        <ng-container matColumnDef="link">
+          <th mat-header-cell *matHeaderCellDef> Link </th>
+          <td mat-cell *matCellDef="let element">
+            <a [href]="element.html_url" target="_blank"> View </a>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="buildColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: buildColumns;"></tr>
+      </table>
+    </mat-expansion-panel>
+
+  </div>
+</mat-expansion-panel>

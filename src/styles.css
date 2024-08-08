@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+.spaced-table th.mat-header-cell, .spaced-table td.mat-cell {
+  padding: 8px 16px; /* Adjust the padding values as needed */
+}
+
+.spaced-table th.mat-header-cell {
+  text-align: left; /* Ensure headers are aligned to the left */
+}
+
+.spaced-table td.mat-cell {
+  text-align: left; /* Ensure cell content is aligned to the left */
+}
