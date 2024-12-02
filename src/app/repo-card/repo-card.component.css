@@ -1,0 +1,52 @@
+css
+.metrics {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.metric {
+  background: #f5f5f5;
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  flex: 1;
+  margin: 0 8px;
+}
+
+.metric h3 {
+  margin: 0;
+  font-size: 1.2em;
+}
+
+.metric p {
+  margin: 0;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.chart-container {
+  margin-bottom: 16px;
+}
+
+.status-success {
+  color: green;
+}
+
+.status-failure {
+  color: red;
+}
+.status-inprogress {
+  color: orange;
+}
+.spaced-table th.mat-header-cell, .spaced-table td.mat-cell {
+  padding: 8px 16px;
+}
+
+.spaced-table th.mat-header-cell {
+  text-align: left;
+}
+
+.spaced-table td.mat-cell {
+  text-align: left;
+}

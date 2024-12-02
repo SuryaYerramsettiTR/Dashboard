@@ -7,6 +7,7 @@ import {AppComponent} from './app.component';
 import {RepoDashboardComponent} from './repo-dashboard/repo-dashboard.component';
 import {RepoCardComponent} from './repo-card/repo-card.component';
 import {MaterialModule} from "./material.module";
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {MaterialModule} from "./material.module";
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
